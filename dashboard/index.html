@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by a fitted model</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-in">
+    <p class="kicker">Token Launch Radar</p>
+    <h1>Protocols with no token yet, ranked by what a launch could be worth</h1>
+    <p class="lede" id="lede">Reading the snapshot…</p>
+    <nav class="views" aria-label="Views">
+      <button type="button" id="view-board" class="view-btn is-on">The board</button>
+      <button type="button" id="view-peers" class="view-btn">Tokenised peers</button>
+      <a class="view-btn as-link" href="#method">How the value is worked out</a>
+      <a class="view-btn as-link" href="#validation">Held-out tests</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section id="stats" class="stats" aria-label="Coverage"></section>
+  <section id="kpis" class="kpis" aria-label="Model evidence"></section>
+  <section id="integrity" class="integrity" aria-label="Every protocol accounted for"></section>
+  <section id="board-panel">
+    <div id="controls" class="controls"></div>
+    <div id="board-wrap"></div>
+    <div id="detail" class="detail" hidden></div>
+  </section>
+  <section id="peers-panel" hidden>
+    <p class="peers-note">These protocols already have a token that trades, so the radar never ranks them.
+    It learns from them instead: the model is fitted on every traded protocol in the snapshot with a
+    recorded market cap and TVL — the largest of them are shown here at the market's own values — and
+    each board row's launch odds are read from how many of its closest peers are on this side of the line.
+    The two right-hand columns grade the model in the open: each peer's leave-one-out price is what the
+    fitted model says it is worth with that peer left out of the fit, and the error is the factor between
+    that price and the market's own.</p>
+    <div id="peers-wrap"></div>
+  </section>
+  <section id="method" class="method"></section>
+  <section id="validation" class="method validation"></section>
+</main>
+<footer>
+  <p id="foot">Built from one sealed snapshot; the page runs with no network and every figure on it is in its data file.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
